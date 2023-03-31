@@ -34,7 +34,6 @@ abstract class BasePageViewWidget<T extends BasePageViewModel> extends Widget {
 
   BasePageViewWidget(
     this.providerBase,
-  {Key? key}
   );
 
   @protected
