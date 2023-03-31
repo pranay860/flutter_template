@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:my_app/app/feature/user_form/user_page_view_model.dart';
 import 'package:my_app/app/routes/route_paths.dart';
-import 'widgets/widget_exports.dart';
+import 'package:statemanagement_riverpod/statemanagement_riverpod.dart';
+import '../widgets/widget_exports.dart';
 
-
-class EducationForm extends StatelessWidget {
-  const EducationForm({super.key});
+class EducationPageView extends BasePageViewWidget<UserPageViewModel> {
+  EducationPageView(ProviderBase<UserPageViewModel> model, {super.key})
+      : super(model);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, model) {
     return Scaffold(
       appBar: AppBar(
           centerTitle: true,
@@ -20,18 +23,24 @@ class EducationForm extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
           child: Form(
+            key: model.educationFormKey,
             child: Column(children: [
               const SizedBox(height: 20),
-              const EducationWdiget(),
+              // Education information
+              EducationWdiget(model: model),
               const SizedBox(height: 15),
               const Divider(thickness: 1.5),
               const SizedBox(height: 15),
-              const ProfessionalInfoWidget(),
+              // Work experience details
+              ProfessionalInfoWidget(model: model),
+              //
               const SizedBox(height: 15),
               ButtonWidget(
                 showButton: true,
                 onNext: () {
-                  Navigator.pushNamed(context, RoutePaths.address);
+                  if (model.educationFormKey.currentState!.validate()) {
+                    Navigator.pushNamed(context, RoutePaths.address);
+                  }
                 },
                 onPrev: () {
                   Navigator.pop(context);

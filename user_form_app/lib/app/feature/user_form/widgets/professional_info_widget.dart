@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:my_app/app/feature/user_form/user_page_view_model.dart';
 
 class ProfessionalInfoWidget extends StatelessWidget {
-  const ProfessionalInfoWidget({super.key});
+  final UserPageViewModel model;
+  const ProfessionalInfoWidget({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -13,28 +16,44 @@ class ProfessionalInfoWidget extends StatelessWidget {
                 Theme.of(context).textTheme.labelLarge!.copyWith(fontSize: 16)),
         const SizedBox(height: 15),
         TextFormField(
+          keyboardType: TextInputType.number,
+          controller: model.experienceController,
           decoration: const InputDecoration(
-              label: Text("Experience*"),
-              focusedBorder: OutlineInputBorder(),
-              enabledBorder: OutlineInputBorder()),
+            label: Text("Experience*"),
+            border: OutlineInputBorder(),
+          ),
+          validator: (value) {
+            if (value == null) return null;
+            if (value.isEmpty) return "Experience is required";
+            return null;
+          },
         ),
         const SizedBox(height: 15),
-        DropdownButtonFormField(
-          items: [],
-          onChanged: (va) {},
+        TextFormField(
+          controller: model.designationController,
+          inputFormatters: [
+            FilteringTextInputFormatter.allow(RegExp(r'^[a-zA-Z0-9_.-]*$')),
+          ],
           decoration: const InputDecoration(
-              label: Text("Designation*"),
-              focusedBorder: OutlineInputBorder(),
-              enabledBorder: OutlineInputBorder()),
+            label: Text("Designation*"),
+            border: OutlineInputBorder(),
+          ),
+          validator: (value) {
+            if (value == null) return null;
+            if (value.isEmpty) return "Designation is required";
+            return null;
+          },
         ),
         const SizedBox(height: 15),
-        DropdownButtonFormField(
-          items: [],
-          onChanged: (va) {},
+        TextFormField(
+          inputFormatters: [
+            FilteringTextInputFormatter.allow(RegExp(r'^[a-zA-Z0-9_.-]*$')),
+          ],
+          controller: model.domainController,
           decoration: const InputDecoration(
-              label: Text("Domain*"),
-              focusedBorder: OutlineInputBorder(),
-              enabledBorder: OutlineInputBorder()),
+            label: Text("Domain"),
+            border: OutlineInputBorder(),
+          ),
         ),
       ],
     );

@@ -1,4 +1,5 @@
-/// Define application navigation path constants to avoid duplication
+/// Define application navigation path
+/// constants to avoid duplication
 class RoutePaths {
   static const String home = '/';
   static const String eduction = '/education';

@@ -2,12 +2,11 @@ import 'package:domain/domain.dart';
 
 import '../base/base_usecase.dart';
 
-class GetTodayTimeLineUseCase extends BaseUseCase<BaseError, GetTodayTimeLineUseCaseParams, WeatherDetail> {
+class GetTodayTimeLineUseCase extends BaseUseCase<BaseError,
+    GetTodayTimeLineUseCaseParams, WeatherDetail> {
   final WeatherRepository _weatherRepository;
 
-  GetTodayTimeLineUseCase(
-    this._weatherRepository,
-  );
+  GetTodayTimeLineUseCase(this._weatherRepository);
 
   @override
   Future<Either<BaseError, WeatherDetail>> execute({

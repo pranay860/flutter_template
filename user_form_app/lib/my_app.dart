@@ -30,19 +30,22 @@ class MyApp extends StatelessWidget {
             )),
       ],
       darkTheme: ThemeData(
-        colorScheme: ColorScheme.fromSwatch().copyWith(
-          background: Colors.blue[700],
-          secondary: Color.fromARGB(255, 9, 4, 104),
-          brightness: Brightness.dark,
-        ),
-      ),
-      lightTheme: ThemeData(
           colorScheme: ColorScheme.fromSwatch().copyWith(
-            background: Color.fromARGB(255, 1, 50, 90),
-            secondary: Color.fromARGB(255, 73, 11, 197),
+            background: Colors.blue[700],
+            secondary: Color.fromARGB(255, 9, 4, 104),
             brightness: Brightness.light,
           ),
-          appBarTheme:const AppBarTheme(
+          appBarTheme: const AppBarTheme(
+              backgroundColor: Colors.white,
+              elevation: 0,
+              iconTheme: IconThemeData(color: Colors.black))),
+      lightTheme: ThemeData(
+          colorScheme: ColorScheme.fromSwatch().copyWith(
+            background: const Color.fromARGB(255, 1, 50, 90),
+            secondary: const Color.fromARGB(255, 73, 11, 197),
+            brightness: Brightness.light,
+          ),
+          appBarTheme: const AppBarTheme(
               backgroundColor: Colors.white,
               elevation: 0,
               iconTheme: IconThemeData(color: Colors.black))),

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter/services.dart';
+import 'package:my_app/app/feature/user_form/user_page_view_model.dart';
+import 'package:my_app/app/utils/menu_items.dart';
 
 class EducationWdiget extends StatelessWidget {
-  const EducationWdiget({super.key});
+  final UserPageViewModel model;
+  const EducationWdiget({super.key, required this.model});
 
   @override
   Widget build(BuildContext context) {
@@ -15,28 +17,40 @@ class EducationWdiget extends StatelessWidget {
                 Theme.of(context).textTheme.labelLarge!.copyWith(fontSize: 16)),
         const SizedBox(height: 15),
         DropdownButtonFormField(
-          items: [],
-          onChanged: (va) {},
+          items: educationList
+              .map((e) => DropdownMenuItem(value: e, child: Text(e)))
+              .toList(),
+          onChanged: (value) => model.changeDegree(value!),
+          validator: (value) => value == null ? "Degree is required" : null,
           decoration: const InputDecoration(
-              label: Text("Education*"),
-              focusedBorder: OutlineInputBorder(),
-              enabledBorder: OutlineInputBorder()),
+            label: Text("Education*"),
+            border: OutlineInputBorder(),
+          ),
         ),
         const SizedBox(height: 15),
         DropdownButtonFormField(
-          items: [],
-          onChanged: (va) {},
+          items: yearList
+              .map((e) => DropdownMenuItem(value: e, child: Text(e)))
+              .toList(),
+          validator: (value) =>
+              value == null ? "Passing year is required" : null,
+          onChanged: (value) => model.changePassingYear(value!),
           decoration: const InputDecoration(
-              label: Text("Year of Passing*"),
-              focusedBorder: OutlineInputBorder(),
-              enabledBorder: OutlineInputBorder()),
+              label: Text("Year of Passing*"), border: OutlineInputBorder()),
         ),
         const SizedBox(height: 15),
         TextFormField(
+          validator: (value) => value == null
+              ? null
+              : value.isEmpty
+                  ? "Grade is required"
+                  : null,
+          controller: model.gradeController,
+          inputFormatters: [
+            FilteringTextInputFormatter.allow(RegExp(r'^[a-zA-Z0-9_.-]*$')),
+          ],
           decoration: const InputDecoration(
-              label: Text("Grade*"),
-              focusedBorder: OutlineInputBorder(),
-              enabledBorder: OutlineInputBorder()),
+              label: Text("Grade*"), border: OutlineInputBorder()),
         ),
       ],
     );

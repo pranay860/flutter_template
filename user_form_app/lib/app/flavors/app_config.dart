@@ -1,6 +1,7 @@
 import 'package:dependency_injection/dependency_injection.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_app/app/dependencies.dart';
 import 'package:my_app/app/utils/enums.dart';
 import 'package:my_app/my_app.dart';
@@ -37,6 +38,6 @@ class AppConfig {
   Future<void> run() async {
     WidgetsFlutterBinding.ensureInitialized();
      await configureDependencies(DependencyConfigurationContext());
-    runApp(createApp());
+    runApp(ProviderScope(child: createApp()));
   }
 }
