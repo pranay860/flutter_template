@@ -7,8 +7,10 @@ import 'package:themes/themes.dart';
 final getIt = GetIt.instance;
 
 // configureModulesDependencies imported from feature_module
+
 final configurators = [
   //configure themes
+  //
   ThemesDependencyConfigurator(),
 
   //configure database sources
