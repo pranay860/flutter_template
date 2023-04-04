@@ -21,6 +21,6 @@ class EducationPageState
 
   @override
   ProviderBase<UserPageViewModel> provideBase() {
-    return userModelRef;
+    return userPageViewModelProvider;
   }
 }

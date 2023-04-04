@@ -30,11 +30,7 @@ class AddressPageView extends BasePageViewWidget<UserPageViewModel> {
               child: Column(children: [
                 TextFormField(
                   validator: (value) {
-                    if (value == null) return null;
-                    if (value.isEmpty || value.length < 3) {
-                      return "The address must contains more than 3 characters";
-                    }
-                    return null;
+                   
                   },
                   controller: model.addressController,
                   decoration: const InputDecoration(

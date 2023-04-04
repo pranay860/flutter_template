@@ -21,4 +21,21 @@ class UserRepositoryImpl extends UserRepository {
     // TODO: implement saveUser
     throw UnimplementedError();
   }
+
+  @override
+  Future imagePicker() {
+    // TODO: implement imagePicker
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<BaseError, UserDetailsModel>> registerUserDetails(
+      {required String email,
+      required String firstName,
+      required String lastName,
+      required String phoneNumber,
+      required String password}) async {
+    return Right(UserDetailsModel(
+        email: '', firstName: '', lastName: '', password: '', phoneNumber: ''));
+  }
 }

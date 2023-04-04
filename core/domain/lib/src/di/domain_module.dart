@@ -53,4 +53,9 @@ abstract class DomainModule {
   ) {
     return GetFutureTimelineUseCase(repository);
   }
+
+  @lazySingleton
+  MyuserUseCase getUserUseCaseProvider(UserRepository userRepository) {
+    return MyuserUseCase(userRepository);
+  }
 }

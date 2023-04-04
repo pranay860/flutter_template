@@ -6,6 +6,7 @@ import 'package:riverpod/src/framework.dart';
 import 'package:statemanagement_riverpod/statemanagement_riverpod.dart';
 
 class UserPage extends BasePage<UserPageViewModel> {
+  // final UserDetailParams userDetailParams;
   const UserPage({Key? key}) : super(key: key);
 
   @override
@@ -17,13 +18,10 @@ class UserPageState extends BaseStatefulPage<UserPageViewModel, UserPage> {
   Widget buildView(BuildContext context, UserPageViewModel model) {
     return UserPageView(provideBase());
   }
-  // @override
-  // void onModelReady(UserPageViewModel model) {
-  
-  //   super.onModelReady(model);
-  // }
+
+ 
   @override
   ProviderBase<UserPageViewModel> provideBase() {
-    return userModelRef;
+    return userPageViewModelProvider;
   }
 }

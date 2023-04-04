@@ -20,4 +20,4 @@ export 'src/usecase/location/get_location_usecase.dart';
 export 'src/usecase/weather/create_location_usecase.dart';
 export 'src/usecase/weather/get_future_timeline_usecase.dart';
 export 'package:shared/shared.dart';
-
+export 'src/usecase/user/user_usecase.dart';

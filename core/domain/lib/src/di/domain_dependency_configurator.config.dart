@@ -38,6 +38,8 @@ _i1.GetIt $initDomainGetIt(
       domainModule.getLocationsUseCaseProvider(get<_i3.WeatherRepository>()));
   gh.lazySingleton<_i5.GetTodayTimeLineUseCase>(() => domainModule
       .getTodayTimelineUseCaseProvider(get<_i3.WeatherRepository>()));
+  gh.lazySingleton<_i3.MyuserUseCase>(
+      () => domainModule.getUserUseCaseProvider(get<_i3.UserRepository>()));
   gh.lazySingleton<_i3.RequestLocationPermissionUseCase>(() => domainModule
       .requestLocationPermissionUseCaseProvider(get<_i3.LocationRepository>()));
   return get;

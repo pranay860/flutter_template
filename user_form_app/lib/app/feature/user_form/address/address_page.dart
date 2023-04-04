@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_app/app/di/view_model.dart';
@@ -15,12 +16,20 @@ class AddressPage extends BasePage<UserPageViewModel> {
 class AddressPageState
     extends BaseStatefulPage<UserPageViewModel, AddressPage> {
   @override
+  void initState() {
+    if (kDebugMode) {
+      print("InitState called");
+    }
+    super.initState();
+  }
+
+  @override
   Widget buildView(BuildContext context, UserPageViewModel model) {
     return AddressPageView(provideBase());
   }
 
   @override
   ProviderBase<UserPageViewModel> provideBase() {
-    return userModelRef;
+    return  userPageViewModelProvider;
   }
 }

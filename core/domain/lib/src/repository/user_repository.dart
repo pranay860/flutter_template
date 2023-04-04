@@ -6,4 +6,13 @@ abstract class UserRepository {
       {required String email, required String password});
 
   Future<Either<DatabaseError, User>> saveUser(User user);
+
+  Future<Either<BaseError, UserDetailsModel>> registerUserDetails(
+      {required String email,
+      required String firstName,
+      required String lastName,
+      required String phoneNumber,
+      required String password});
+
+  Future imagePicker();
 }

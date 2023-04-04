@@ -24,6 +24,6 @@ export 'src/model/weather_detail.dart';
 export 'src/utils/date_formatter.dart';
 export 'src/shared_base.dart';
 export 'src/utils/mapper/base_layer_transformer.dart';
-
+export 'src/model/user_model_details.dart';
 //utils
 export 'src/utils/validator.dart';
