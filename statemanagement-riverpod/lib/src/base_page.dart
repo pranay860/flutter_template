@@ -32,9 +32,7 @@ abstract class BaseStatefulPage<VM extends BasePageViewModel,
 abstract class BasePageViewWidget<T extends BasePageViewModel> extends Widget {
   final ProviderBase<T> providerBase;
 
-  BasePageViewWidget(
-    this.providerBase,
-  );
+  BasePageViewWidget(this.providerBase, {Key? key});
 
   @protected
   Widget build(BuildContext context, T model);

@@ -22,6 +22,28 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "appName": MessageLookupByLibrary.simpleMessage("MyAppName")
+        "appName": MessageLookupByLibrary.simpleMessage("MyAppName"),
+        "degreeStaticText": MessageLookupByLibrary.simpleMessage("23"),
+        "favDegreeStaticText": MessageLookupByLibrary.simpleMessage("12"),
+        "futureWeather": MessageLookupByLibrary.simpleMessage("Future weather"),
+        "goodAfternoon":
+            MessageLookupByLibrary.simpleMessage("Good \nAfternoon"),
+        "goodEvening": MessageLookupByLibrary.simpleMessage("Good \nEvening"),
+        "goodMorning": MessageLookupByLibrary.simpleMessage("Good \nMorning"),
+        "home": MessageLookupByLibrary.simpleMessage("My Home"),
+        "hours": MessageLookupByLibrary.simpleMessage("Hours"),
+        "humidity": MessageLookupByLibrary.simpleMessage("Humidity"),
+        "losAngelesStaticText":
+            MessageLookupByLibrary.simpleMessage("Los Angeles"),
+        "min": MessageLookupByLibrary.simpleMessage("Min"),
+        "navigation": MessageLookupByLibrary.simpleMessage("Navigation"),
+        "newYorkStaticText": MessageLookupByLibrary.simpleMessage("New York"),
+        "profile": MessageLookupByLibrary.simpleMessage("Profile"),
+        "search": MessageLookupByLibrary.simpleMessage("Search"),
+        "sec": MessageLookupByLibrary.simpleMessage("Sec"),
+        "todayWeather":
+            MessageLookupByLibrary.simpleMessage("Today\'s Weather"),
+        "wind": MessageLookupByLibrary.simpleMessage("Wind"),
+        "yourFav": MessageLookupByLibrary.simpleMessage("Your Favourite")
       };
 }

@@ -11,11 +11,19 @@ enum ErrorType {
   ui,
   uiEmptyEmail,
   uiInvalidEmail,
+  uiAddressError,
   uiEmptyPassword,
+  uiEmptyLocationName,
+  uiNoLocation,
+  uiInvalidMobileNumber,
 
   //DB ERROR
   database,
   databaseNotSupported,
   databaseError1,
   databaseUserNotFound,
+
+
+  //Local Error
+  locationError
 }

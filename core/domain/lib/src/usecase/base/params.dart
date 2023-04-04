@@ -7,4 +7,5 @@ abstract class Params {
   Params({this.reloading = false});
 
   Either<AppError, bool> verify();
+  
 }
