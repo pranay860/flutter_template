@@ -1,0 +1,54 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "qa app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "app/lib/entrypoints/main_qa.dart",
+            "args": [
+                "--flavor",
+                "qa"
+            ]
+            // flutter run --flavor qa -t lib/entrypoints/main_qa.dart
+        },
+        {
+            "name": "dev app",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "program": "app/lib/entrypoints/main_dev.dart",
+            "args": [
+                "--flavor",
+                "dev"
+            ]
+            // flutter run --flavor qa -t lib/entrypoints/main_qa.dart
+        },
+        {
+            "name": "my_app (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile",
+            "program": "app/lib/app/flavors/dev_app.dart",
+            "args": [
+                "--flavor",
+                "dev"
+            ]
+        },
+        {
+            "name": "my_app (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "program": "app/lib/entrypoints/main_prod.dart",
+            "flutterMode": "release",
+            "args": [
+                "--flavor",
+                "prod"
+            ]
+        }
+    ]
+}

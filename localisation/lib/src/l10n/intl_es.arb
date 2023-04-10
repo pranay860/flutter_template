@@ -1,0 +1,19 @@
+{
+ "Register":"Registro",
+ "appname": "miaplicacion",
+  "firstname": "Nombre de pila*",
+  "firstMessage": "El primer nombre debe contener más de 3 caracteres.",
+  "lastNameMessage" : "El apellido debe contener más de 3 caracteres",
+  "phoneMessage":  "Numero de celular invalido",
+  "emailMessage" : "Email inválido",
+  "passwordMessage": "La contraseña debe contener caracteres, números y un carácter especial",
+  "confirmpasswordMessage" :"La contraseña no coincide con la contraseña proporcionada",
+  "lastname": "Apellido*",
+  "phonenumber": "Número de teléfono*",
+  "email":"Correo electrónico*",
+  "password" :"Contraseña*",
+  "confirmpassword":"Confirmar contraseña*",
+  "male": "Masculina",
+  "female": "Femenina",
+  "gender":"Género"
+}

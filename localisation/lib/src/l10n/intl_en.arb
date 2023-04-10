@@ -1,3 +1,20 @@
 {
-  "appName": "MyAppName"
+  "appname": "MyApName",
+  "Register":"Register",
+  "firstname": "First Name*",
+  "firstMessage": "The first name must contain more than 3 characters",
+  "lastNameMessage" : "The last name must contain more than 3 characters",
+  "phoneMessage":  "Invalid mobile number",
+  "emailMessage" : "Invalid email",
+  "passwordMessage": "Password must contains characters, numbers and one special character",
+  "confirmpasswordMessage" :"Password does not match with provided password",
+  "lastname": "Last Name*",
+  "phonenumber": "Phone Number*",
+  "email":"Email*",
+  "password" :"Password*",
+  "confirmpassword":"Confirm password*",
+  "male": "Male",
+  "female": "Female",
+  "gender":"Gender"
+  
 }
