@@ -14,12 +14,16 @@ final splashViewModelProvider =
 );
 
 final userPageViewModelProvider = ChangeNotifierProvider<UserPageViewModel>(
-    (ref) => UserPageViewModel(getIt.get<UserUseCase>(),
-        getIt.get<LanguageUseCase>(), getIt.get<ImageUseCase>()));
+    (ref) => UserPageViewModel(
+        getIt.get<UserUseCase>(),
+        getIt.get<LanguageUseCase>(),
+        getIt.get<ImageUseCase>(),
+        getIt.get<GetUserDataUseCase>(),
+        getIt.get<SaveUserDataUseCase>()));
 
 ///
-final myPostsViewModel = ChangeNotifierProvider<MyPostsViewModel>(
-    (ref) => MyPostsViewModel(getIt.get<MyPostsUseCase>(),
+final myPostsViewModel = ChangeNotifierProvider<MyPostsViewModel>((ref) =>
+    MyPostsViewModel(getIt.get<MyPostsUseCase>(),
         getIt.get<FlutterExceptionHandlerBinder>()));
 
 /// This can be a issue let's take example that

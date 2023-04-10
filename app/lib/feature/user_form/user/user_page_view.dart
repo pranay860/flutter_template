@@ -66,7 +66,6 @@ class UserPageView extends BasePageViewWidget<UserPageViewModel> {
                       initialData: Resource.none(),
                       dataBuilder: (context, imageRef) {
                         final userImageRef = imageRef!.data;
-                        // print("status : ${imageRef.data?.reloading}");
                         return GestureDetector(
                           onTap: () {
                             // To pick image
@@ -186,25 +185,37 @@ class UserPageView extends BasePageViewWidget<UserPageViewModel> {
                   ),
 
                   const SizedBox(height: 15),
-                  ButtonWidget(
-                    showButton: false,
-                    onNext: () {
-                      // model.onValidate();
+                  AppStreamBuilder<Resource<bool>>(
+                    initialData: Resource.none(),
+                    stream: model.getUserDataStatus,
+                    dataBuilder: (context, ref) {
+                      if (ref?.status == Status.loading) {
+                        return const Center(child: CircularProgressIndicator());
+                      } else {
+                        return ButtonWidget(
+                          showButton: false,
+                          onNext: () {
+                            if (kDebugMode) {
+                              print("Status ${userRef?.dealSafeAppError}");
+                            }
+                            if (userRef?.status == Status.success) {
+                              model.registerUserData(UserDetailsModel(
+                                  firstName: model.firstNameController.text,
+                                  lastName: model.lastNameController.text,
+                                  email: model.emailController.text,
+                                  phoneNumber: model.phoneController.text,
+                                  gender: model.genderValue.name,
+                                  password: null));
+                            }
+                          },
+                        );
+                      }
+                    },
+                    onData: (value) {
+                      model.resetControllers();
                     },
                   ),
                 ]);
-              },
-              onData: (value) {
-                print(value.dealSafeAppError?.type);
-                if (kDebugMode) {
-                  print("Status ${value.status}");
-                }
-                if (value.status == Status.success) {
-                  if (kDebugMode) {
-                    print("Status ${value.status}");
-                  }
-                  // Navigator.pushNamed(context, RoutePaths.eduction);
-                }
               },
             ),
           ),

@@ -19,7 +19,8 @@ class UserUseCase
             firstName: params.firstName,
             lastName: params.lastName,
             password: params.password,
-            phoneNumber: params.phoneNumber))
+            phoneNumber: params.phoneNumber,
+            gender: params.gender))
         .fold((l) => Left(l), (r) {
       // print(r);
       return Right(r);
@@ -36,6 +37,7 @@ class UserUseCaseParams extends Params {
   String? lastName;
   String? phoneNumber;
   String? confirmPassword;
+  Enum? gender;
 
   UserUseCaseParams(
       {this.email,
@@ -43,7 +45,8 @@ class UserUseCaseParams extends Params {
       this.lastName,
       this.password,
       this.phoneNumber,
-      this.confirmPassword});
+      this.confirmPassword,
+      this.gender});
 
   @override
   Either<AppError, bool> verify() {

@@ -14,13 +14,12 @@ class UserPageViewModel extends BasePageViewModel {
   final UserUseCase _userUseCase;
   final LanguageUseCase _languageUseCase;
   final ImageUseCase _imageUseCase;
+  final GetUserDataUseCase _getuserDataUseCase;
+  final SaveUserDataUseCase _saveUserDataUseCase;
 
   //
-  UserPageViewModel(
-    this._userUseCase,
-    this._languageUseCase,
-    this._imageUseCase,
-  ) {
+  UserPageViewModel(this._userUseCase, this._languageUseCase,
+      this._imageUseCase, this._getuserDataUseCase, this._saveUserDataUseCase) {
     //
     _addUserUseCaseRequest.listen((params) {
       RequestManager<UserDetailsModel>(
@@ -78,6 +77,13 @@ class UserPageViewModel extends BasePageViewModel {
   /// To get language request
   final PublishSubject<LanguageCaseParmas> _addLanguageRequest =
       PublishSubject();
+
+  final PublishSubject<Resource<bool>> _addUserSavedDataStatus =
+      PublishSubject();
+
+  /// To get saved user data status
+  Stream<Resource<bool>> get getUserDataStatus =>
+      _addUserSavedDataStatus.stream;
 
   /// To add image request
   final PublishSubject<ImageParams> _addImageRequest = PublishSubject();
@@ -141,18 +147,44 @@ class UserPageViewModel extends BasePageViewModel {
   /// the user response
   void onValidate(Enum? fieldtype) {
     UserUseCaseParams userCaseParams = UserUseCaseParams(
-        email: emailController.text,
-        firstName: firstNameController.text,
-        lastName: lastNameController.text,
-        password: passwordController.text,
-        phoneNumber: phoneController.text,
-        confirmPassword: confirmpasswordController.text);
+      email: emailController.text,
+      firstName: firstNameController.text,
+      lastName: lastNameController.text,
+      password: passwordController.text,
+      phoneNumber: phoneController.text,
+      confirmPassword: confirmpasswordController.text,
+    );
     _addUserUseCaseRequest.add(userCaseParams);
+
     // // print(value);
 
     // adding params to request
   }
 
+  void resetControllers() {
+    firstNameController.clear();
+    lastNameController.clear();
+    phoneController.clear();
+    emailController.clear();
+    passwordController.clear();
+    confirmpasswordController.clear();
+    
+  }
+
+  /// To save user data into firestore
+  void registerUserData(UserDetailsModel userDetailsModel) {
+    SaveUserDataUseCaseParams saveUserDataUseCaseParams =
+        SaveUserDataUseCaseParams(
+            userId: "YuxaAEadiaWEdapodeaA", userDetailsModel: userDetailsModel);
+    RequestManager<bool>(
+      saveUserDataUseCaseParams,
+      createCall: () =>
+          _saveUserDataUseCase.execute(params: saveUserDataUseCaseParams),
+    ).asFlow().listen((event) {
+      print(event.status);
+      _addUserSavedDataStatus.add(event);
+    });
+  }
   // void registerUser() {
   //   UserUseCaseParams params = UserUseCaseParams(
   //       email: value,

@@ -11,6 +11,6 @@ import 'package:stack_trace/stack_trace.dart' as stack_trace;
 /// correct target (-t) defined in the build command.
 /// It always points to `main.dart` thus this file is used
 /// until a fix is released.R
-void main() {
+void main() async {
   entrypoint.main();
 }

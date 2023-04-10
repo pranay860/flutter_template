@@ -11,6 +11,7 @@ packages:
   - statemanagement-core
   - statemanagement-riverpod
   - themes
+  - infrastructure/firebase
 
 scripts:
   clean-all:

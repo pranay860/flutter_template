@@ -12,7 +12,8 @@ abstract class UserRepository {
       String? firstName,
       String? lastName,
       String? phoneNumber,
-      String? password});
+      String? password,
+      Enum? gender});
 
   Future imagePicker();
 }

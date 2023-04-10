@@ -4,11 +4,13 @@ class UserDetailsModel {
   final String? email;
   final String? phoneNumber;
   final String? password;
+  final String? gender;
 
   UserDetailsModel(
       {required this.firstName,
       required this.lastName,
       required this.email,
       required this.phoneNumber,
-      required this.password});
+      required this.password,
+      required this.gender});
 }

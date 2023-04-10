@@ -1,4 +1,5 @@
 import 'package:app/app.dart';
+import 'package:app/firebase_options.dart';
 import 'package:app/flavors/flavor.dart';
 import 'package:app/flavors/flavor_config.dart';
 import 'package:app/flavors/flavor_values.dart';
