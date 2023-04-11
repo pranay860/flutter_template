@@ -1,5 +1,5 @@
 import 'package:data/data.dart';
-import 'package:data/src/repository/firebase_repository.dart';
+import 'package:data/src/repository/cloud_database_repository.dart';
 import 'package:data/src/repository/image_picker_repository.dart';
 import 'package:data/src/repository/language_repository.dart';
 import 'package:data/src/repository/my_posts_repository.dart';
@@ -11,7 +11,7 @@ import 'package:injectable/injectable.dart';
 abstract class DataModule {
   @lazySingleton
   UserRepository userRepositoryProvider(DatabasePort databasePort,
-      NetworkPort networkPort, FirebasePort firebasePort) {
+      NetworkPort networkPort, CloudDbPort firebasePort) {
     return UserRepositoryImpl(databasePort, networkPort, firebasePort);
   }
 
@@ -31,7 +31,7 @@ abstract class DataModule {
   }
 
   @lazySingleton
-  FirebaseRepository firebsaeRepositoryProvider(FirebasePort firebasePort) {
-    return FirebaseRepositoryImpl(firebasePort);
+  CloudDbRepository firebsaeRepositoryProvider(CloudDbPort firebasePort) {
+    return CloudDbRepositoryImpl(firebasePort);
   }
 }

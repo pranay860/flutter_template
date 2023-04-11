@@ -1,13 +1,13 @@
+import 'package:cloud_database/src/di/cloud_database_dependency_confurigator.config.dart';
 import 'package:dependency_injection/dependency_injection.dart';
-import 'package:firebase/src/di/firebase_dependency_confurigator.config.dart';
 import 'package:injectable/injectable.dart';
 import 'package:get_it/get_it.dart';
 
 // global private function
-@InjectableInit(initializerName: r'$initFirebaseGetIt')
-_configureModuleDependencies(GetIt getIt) => $initFirebaseGetIt(getIt);
+@InjectableInit(initializerName: r'$initCloudDbGetIt')
+_configureModuleDependencies(GetIt getIt) => $initCloudDbGetIt(getIt);
 
-class FirebaseDependencyConfurigator implements DependencyConfigurator {
+class CloudDbDependencyConfurigator implements DependencyConfigurator {
   @override
   Future configureDependencies(
       DependencyConfigurationContext context, GetIt getIt) {

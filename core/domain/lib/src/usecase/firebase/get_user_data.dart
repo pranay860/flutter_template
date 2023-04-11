@@ -3,7 +3,7 @@ import 'package:domain/src/usecase/base/base_usecase.dart';
 
 class GetUserDataUseCase
     extends BaseUseCase<BaseError, GetUserDataUseCaseParams, UserDetailsModel> {
-  final FirebaseRepository _firebaseRepository;
+  final CloudDbRepository _firebaseRepository;
   GetUserDataUseCase(this._firebaseRepository);
   @override
   Future<Either<BaseError, UserDetailsModel>> execute(

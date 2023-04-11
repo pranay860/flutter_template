@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:data/data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class FirebaseAdapter extends FirebasePort {
+class CloudDbAdapter extends CloudDbPort {
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
   @override
   Future<Either<NetworkError, UserDetailsModel>> getUserData(

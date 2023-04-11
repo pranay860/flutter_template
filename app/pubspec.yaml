@@ -65,8 +65,8 @@ dependencies:
   fluttertoast: ^8.0.9
   rxdart: ^0.27.5
   flutter_rating_bar: ^4.0.1
-  firebase:
-    path: ../infrastructure/firebase/
+  cloud_database:
+    path: ../infrastructure/cloud_database/
 
 dev_dependencies:
   flutter_test:

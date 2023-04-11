@@ -1,6 +1,6 @@
 import 'package:domain/domain.dart';
 
-abstract class FirebaseRepository {
+abstract class CloudDbRepository {
   Future<Either<NetworkError, bool>> saveUserData(
     String userId,
     UserDetailsModel userDetailsModel,

@@ -4,7 +4,7 @@ import 'package:domain/domain.dart';
 class UserRepositoryImpl extends UserRepository {
   final DatabasePort databaseProvider;
   final NetworkPort networkPort;
-  final FirebasePort firebasePort;
+  final CloudDbPort firebasePort;
 
   UserRepositoryImpl(
       this.databaseProvider, this.networkPort, this.firebasePort);

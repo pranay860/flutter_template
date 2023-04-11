@@ -3,7 +3,7 @@ import 'package:domain/src/usecase/base/base_usecase.dart';
 
 class SaveUserDataUseCase
     extends BaseUseCase<BaseError, SaveUserDataUseCaseParams, bool> {
-  final FirebaseRepository _firebaseRepository;
+  final CloudDbRepository _firebaseRepository;
   SaveUserDataUseCase(this._firebaseRepository);
   @override
   Future<Either<BaseError, bool>> execute(
