@@ -195,6 +195,7 @@ class UserPageView extends BasePageViewWidget<UserPageViewModel> {
                         return ButtonWidget(
                           showButton: false,
                           onNext: () {
+                            model.onValidate(null);
                             if (kDebugMode) {
                               print("Status ${userRef?.dealSafeAppError}");
                             }

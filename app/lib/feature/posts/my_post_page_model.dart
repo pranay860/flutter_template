@@ -19,8 +19,8 @@ class MyPostsViewModel extends BasePageViewModel {
   }
 
   /// To add posts to the resourse posts request
-  final PublishSubject<Resource<List<MyPosts>>> _addMyPostsRequestsResourse =
-      PublishSubject();
+  final BehaviorSubject<Resource<List<MyPosts>>> _addMyPostsRequestsResourse =
+      BehaviorSubject();
 
   /// To get myposts stream
   Stream<Resource<List<MyPosts>>> get getMyPostsListStream =>

@@ -21,28 +21,6 @@ final userPageViewModelProvider = ChangeNotifierProvider<UserPageViewModel>(
         getIt.get<GetUserDataUseCase>(),
         getIt.get<SaveUserDataUseCase>()));
 
-///
 final myPostsViewModel = ChangeNotifierProvider<MyPostsViewModel>((ref) =>
     MyPostsViewModel(getIt.get<MyPostsUseCase>(),
         getIt.get<FlutterExceptionHandlerBinder>()));
-
-/// This can be a issue let's take example that
-/// 
-/// I wanted to call an API request and load that
-/// data into my listview and I do not wanted to call an API
-/// again and again.
-/// This can be possible if manipulating the inital data parameter
-/// in AppStreamBuilder widget.
-/// 
-/// But in this scenario when I am calling the API
-/// I have to make viewmodel autodiposbile because
-/// when the viewmodel get disposed then only the API get 
-/// called again when constroctor get called
-/// 
-/// The scenario should like most off the time 
-/// want to call API only once thourgh the app 
-/// whenever we open the screen loaded data should 
-/// be there without calling an API again and again
-/// 
-/// This will make minimum API calls 
-///

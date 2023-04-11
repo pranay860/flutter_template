@@ -168,7 +168,6 @@ class UserPageViewModel extends BasePageViewModel {
     emailController.clear();
     passwordController.clear();
     confirmpasswordController.clear();
-    
   }
 
   /// To save user data into firestore
