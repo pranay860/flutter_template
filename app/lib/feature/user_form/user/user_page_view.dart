@@ -96,6 +96,7 @@ class UserPageView extends BasePageViewWidget<UserPageViewModel> {
                   const SizedBox(height: 30),
                   //
                   CustomField(
+                    key: ValueKey("firstname"),
                     labelText: Strings.of(context).firstname,
                     type: ErrorType.uiFirstName,
                     obscureText: false,
@@ -206,7 +207,8 @@ class UserPageView extends BasePageViewWidget<UserPageViewModel> {
                                   email: model.emailController.text,
                                   phoneNumber: model.phoneController.text,
                                   gender: model.genderValue.name,
-                                  password: null));
+                                  password: null,
+                                  userImage: model.file));
                             }
                           },
                         );

@@ -1,3 +1,5 @@
+import 'dart:io';
+
 class UserDetailsModel {
   final String? firstName;
   final String? lastName;
@@ -5,6 +7,7 @@ class UserDetailsModel {
   final String? phoneNumber;
   final String? password;
   final String? gender;
+  final File? userImage;
 
   UserDetailsModel(
       {required this.firstName,
@@ -12,5 +15,6 @@ class UserDetailsModel {
       required this.email,
       required this.phoneNumber,
       required this.password,
-      required this.gender});
+      required this.gender,
+      required this.userImage});
 }

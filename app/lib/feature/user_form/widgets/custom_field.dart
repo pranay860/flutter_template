@@ -30,6 +30,7 @@ class CustomField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         TextFormField(
+          key: key,
           controller: textEditingController,
           obscureText: obscureText,
           onChanged: onChanged,

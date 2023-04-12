@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:app/model/resource.dart';
 import 'package:app/utils/enums.dart';
 import 'package:app/utils/request_manager.dart';
@@ -121,6 +123,7 @@ class UserPageViewModel extends BasePageViewModel {
 
   /// To get image file
   // XFile? userImage;
+  File? file;
 
   /// To pick image from gallery
   void pickImage() async {
@@ -128,6 +131,7 @@ class UserPageViewModel extends BasePageViewModel {
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
     String? path = image?.path;
     ImageParams imageParams = ImageParams(imagePath: path);
+    file = File(path!);
     _addImageRequest.add(imageParams);
   }
 
@@ -171,7 +175,7 @@ class UserPageViewModel extends BasePageViewModel {
   }
 
   /// To save user data into firestore
-  void registerUserData(UserDetailsModel userDetailsModel) {
+  void registerUserData(UserDetailsModel userDetailsModel) async {
     SaveUserDataUseCaseParams saveUserDataUseCaseParams =
         SaveUserDataUseCaseParams(
             userId: "YuxaAEadiaWEdapodeaA", userDetailsModel: userDetailsModel);

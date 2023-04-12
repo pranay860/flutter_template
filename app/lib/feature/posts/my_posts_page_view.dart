@@ -1,4 +1,5 @@
 import 'package:app/feature/posts/my_post_page_model.dart';
+import 'package:app/feature/posts/widgets/card_widget.dart';
 import 'package:app/model/resource.dart';
 import 'package:app/utils/stream_builder/app_stream_builder.dart';
 import 'package:app/widget/data_status_widget.dart';
@@ -20,65 +21,19 @@ class MyPostPageView extends BasePageViewWidget<MyPostsViewModel> {
           stream: model.getMyPostsListStream,
           dataBuilder: (context, data) {
             return DataStatusWidget(
-                status: data?.status ?? Status.none,
-                loadingWidget: () =>
-                    const Center(child: CircularProgressIndicator()),
-                errorWidget: () =>
-                    const Center(child: Text("Something wents wrong")),
-                successWidget: () => GridView.extent(
-                    maxCrossAxisExtent: MediaQuery.of(context).size.width / 1.5,
-                    childAspectRatio: 0.42,
-                    children: data!.data!.map((e) {
-                      return Padding(
-                        padding: const EdgeInsets.only(left: 8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            SizedBox(
-                                height: 300,
-                                width: double.infinity,
-                                child: Image.network(
-                                  e.image,
-                                  fit: BoxFit.contain,
-                                )),
-                            Row(children: [
-                              const Text("₹ "),
-                              Text(e.price.toStringAsFixed(2),
-                                  style: Theme.of(context).textTheme.labelLarge)
-                            ]),
-                            const SizedBox(height: 5),
-                            Text(
-                              e.title,
-                              maxLines: 2,
-                              overflow: TextOverflow.ellipsis,
-                              style: Theme.of(context).textTheme.bodyLarge,
-                            ),
-                            const SizedBox(height: 5),
-                            Text(e.category),
-                            const SizedBox(height: 5),
-                            RatingBar.builder(
-                              initialRating: e.rating.rate,
-                              direction: Axis.horizontal,
-                              allowHalfRating: true,
-                              itemSize: 20,
-                              ignoreGestures: true,
-                              itemCount: 5,
-                              itemBuilder: (context, _) => const Icon(
-                                Icons.star,
-                                color: Colors.amber,
-                              ),
-                              onRatingUpdate: (rating) {},
-                            ),
-                            const SizedBox(height: 5),
-                            Text(
-                              e.description,
-                              maxLines: 3,
-                              overflow: TextOverflow.ellipsis,
-                            )
-                          ],
-                        ),
-                      );
-                    }).toList()));
+              status: data?.status ?? Status.none,
+              loadingWidget: () =>
+                  const Center(child: CircularProgressIndicator()),
+              errorWidget: () =>
+                  const Center(child: Text("Something went wrong")),
+              successWidget: () => GridView.extent(
+                maxCrossAxisExtent: MediaQuery.of(context).size.width / 1.5,
+                childAspectRatio: 0.42,
+                children: data!.data!.map((e) {
+                  return CardWidget(myPosts: e);
+                }).toList(),
+              ),
+            );
           }),
     );
   }
