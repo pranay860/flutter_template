@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:localisation/strings.dart';
 import 'package:statemanagement_riverpod/statemanagement_riverpod.dart';
+import 'package:themes/themes.dart';
 
 class UserPageView extends BasePageViewWidget<UserPageViewModel> {
   UserPageView(ProviderBase<UserPageViewModel> model) : super(model);
@@ -38,7 +39,7 @@ class UserPageView extends BasePageViewWidget<UserPageViewModel> {
           ),
           TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, RoutePaths.myPosts);
+                // Navigator.pushNamed(context, RoutePaths.myPosts);
               },
               child: const Text("Api sample"))
           // })

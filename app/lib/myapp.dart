@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
         ),
       ),
       lightTheme: ThemeData(
+        appBarTheme: const AppBarTheme(backgroundColor: Colors.white),
         colorScheme: ColorScheme.fromSwatch().copyWith(
           background: Colors.blue[300],
           secondary: Colors.yellow[300],

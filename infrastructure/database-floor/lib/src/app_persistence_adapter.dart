@@ -1,5 +1,7 @@
+import 'package:dartz/dartz.dart';
 import 'package:data/data.dart';
 import 'package:database_floor/src/app_database.dart';
+import 'package:database_floor/src/model/user_entity.dart';
 
 class AppPersistenceAdapter implements DatabasePort {
   final AppDatabase appDatabase;
@@ -7,8 +9,8 @@ class AppPersistenceAdapter implements DatabasePort {
   AppPersistenceAdapter(this.appDatabase);
 
   @override
-  void fetchPosts() {
-    // TODO: implement fetchPosts
+  void fetchAllUsers() {
+    appDatabase.userDao.getUsers();
   }
 
   @override
@@ -17,7 +19,11 @@ class AppPersistenceAdapter implements DatabasePort {
   }
 
   @override
-  void saveUser() {
-    // TODO: implement saveUser
+  Future<Either<BaseError, int>> saveUser() async {
+    // final data = await appDatabase.userDao.insertData();
+
+    return Right(1);
   }
+
+  //  appDatabase.userDao.insertData(UserDBEntity());
 }

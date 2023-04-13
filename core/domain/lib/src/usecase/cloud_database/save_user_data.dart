@@ -5,6 +5,7 @@ class SaveUserDataUseCase
     extends BaseUseCase<BaseError, SaveUserDataUseCaseParams, bool> {
   final CloudDbRepository _firebaseRepository;
   SaveUserDataUseCase(this._firebaseRepository);
+  //
   @override
   Future<Either<BaseError, bool>> execute(
       {required SaveUserDataUseCaseParams params}) async {

@@ -1,5 +1,6 @@
 import 'package:data/data.dart';
 import 'package:data/src/repository/cloud_database_repository.dart';
+import 'package:data/src/repository/database_repository.dart';
 import 'package:data/src/repository/image_picker_repository.dart';
 import 'package:data/src/repository/language_repository.dart';
 import 'package:data/src/repository/my_posts_repository.dart';
@@ -34,4 +35,9 @@ abstract class DataModule {
   CloudDbRepository firebsaeRepositoryProvider(CloudDbPort firebasePort) {
     return CloudDbRepositoryImpl(firebasePort);
   }
+
+  @lazySingleton
+  SaveUserFloorRepository databaseRepositoryProvider(
+          DatabasePort databasePort) =>
+      DatabaseFloorRepositoryIml(databasePort);
 }

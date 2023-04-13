@@ -10,6 +10,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 import 'package:statemanagement_riverpod/statemanagement_riverpod.dart';
 import 'package:rxdart/subjects.dart';
+import 'package:themes/themes.dart';
 
 @injectable
 class UserPageViewModel extends BasePageViewModel {
