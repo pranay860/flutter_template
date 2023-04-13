@@ -19,7 +19,6 @@ class SplashPageView extends BasePageViewWidget<SplashViewModel> {
           width: 100,
           height: 100,
           child: ElevatedButton(
-
             onPressed: () {
               model.test();
             },

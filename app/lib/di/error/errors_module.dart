@@ -5,7 +5,6 @@ import 'package:data/data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_errors/flutter_errors.dart';
 import 'package:injectable/injectable.dart';
-
 import '../../errors/flutter_toast_error_presenter.dart';
 
 @module

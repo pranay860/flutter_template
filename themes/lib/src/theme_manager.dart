@@ -234,7 +234,7 @@ You can supply either a list of ThemeData objects to the themes property or a li
   }
 }
 
-/// Returns the [ThemeManger] that
+/// Returns the [ThemeManager] that
 ThemeManager of<ThemeManager>(BuildContext context) =>
     Provider.of<ThemeManager>(context, listen: false);
 

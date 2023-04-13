@@ -30,8 +30,11 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.0.2
+  cloud_firestore: ^4.5.0
+  firebase_core: ^2.9.0
   cupertino_icons: ^1.0.2
   responsive_framework: ^0.2.0
+  image_picker: ^0.8.7+1
   get_it:
   injectable:
   dependency_injection:
@@ -60,6 +63,12 @@ dependencies:
       ref: main
       path: flutter-errors/
   fluttertoast: ^8.0.9
+  rxdart: ^0.27.5
+  flutter_rating_bar: ^4.0.1
+  cloud_database:
+    path: ../infrastructure/cloud_database/
+  firebase_storage: ^11.1.0
+  
 
 dev_dependencies:
   flutter_test:

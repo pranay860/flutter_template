@@ -9,6 +9,7 @@ environment:
 
 dependencies:
   get_it:
+  json_annotation: '>4.4.0'
   injectable:
   dependency_injection:
     path: ../../dependency-injection/
